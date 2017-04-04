@@ -3,9 +3,9 @@
   height: 1000px;
   width: 1050px;
   margin: auto;
+  margin-bottom: 35px;
   background: #090847;
   border: 5px ridge #E4CA00;
-
 }
 #Sun {
   position: absolute;
