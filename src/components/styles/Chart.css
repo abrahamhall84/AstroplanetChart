@@ -374,11 +374,60 @@
   height: 750px;
   width:750px;
   border-radius: 100%;
-  border: 10px solid #E4CA00;
+  border: 10px ridge #E4CA00;
 }
+#Constellations {
+  position: absolute;
+  margin-top: .25px;
+  margin-left: .25px;
+  height: 690px;
+  width:690px;
+  border-radius: 100%;
+  border: 30px solid rgba(79, 203, 222, 0.3);
+  /*transform: skewY(60deg) rotate(15deg);*/
+}
+.Aries {
+  
+}
+/*li:first-child {
+  transform: rotate(0deg) skewY(-60deg);
+}
+li:nth-child(2) {
+  transform: rotate(30deg) skewY(-60deg);
+}
+li:nth-child(3) {
+  transform: rotate(60deg) skewY(-60deg);
+}
+li:nth-child(4) {
+  transform: rotate(90deg) skewY(-60deg);
+}
+li:nth-child(5) {
+  transform: rotate(120deg) skewY(-60deg);
+}
+li:nth-child(6) {
+  transform: rotate(150deg) skewY(-60deg);
+}
+li:nth-child(7) {
+  transform: rotate(180deg) skewY(-60deg);
+}
+li:nth-child(8) {
+  transform: rotate(210deg) skewY(-60deg);
+}
+li:nth-child(9) {
+  transform: rotate(240deg) skewY(-60deg);
+}
+li:nth-child(10) {
+  transform: rotate(270deg) skewY(-60deg);
+}
+li:nth-child(11) {
+  transform: rotate(300deg) skewY(-60deg);
+}
+li:nth-child(12) {
+  transform: rotate(330deg) skewY(-60deg);
+}*/
 /*@keyframes rotation {
   100%{ transform: rotate(360deg); }
 }*/
-@keyframes orbit {
+/*@keyframes orbit {
   100%{ transform: rotate(360deg); }
-} 
+} */

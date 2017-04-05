@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import './styles/Form.css';
+import React, { Component } from 'react'
+import $ from 'jquery'
+import './styles/Form.css'
 
 class Form extends Component {
   constructor() {
@@ -11,10 +12,26 @@ class Form extends Component {
   static defaultProps = {
     months: ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     days: ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
-    years: ['', '1960', '1961', '1962', '1963', '1964', '1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975', '1976', '1977', '1978', '1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1989', '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
+    years: ['', '1960', '1961', '1962', '1963', '1964', '1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975', '1976', '1977', '1978', '1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
   }
+  // getPlanets(date) {
+  //   let url = "http://www.astro-phys.com/api/de406/states?" + date + "&bodies=mercury, venus"
+  //   $.ajax({
+  //     url: url,
+  //     dataType: 'json',
+  //     cache: false,
+  //     success: function(data) {
+  //       this.setState({planets: data}, function() {
+  //         console.log(this.state);
+  //       })
+  //     }.bind(this), 
+  //     error: function(xhr, status, err) {
+  //       console.log(err);
+  //     }
+  //   })
+  // }
   handleSubmit(e) {
-    if((this.refs.month.value && this.refs.day.value && this.year.month.value) === '' ) {
+    if((this.refs.month.value && this.refs.day.value && this.refs.year.value) === '' ) {
       alert('Date is Required');
     } else if((this.refs.month.value && this.refs.day.value) === '') {
       alert('Month and Day are Required');
@@ -29,14 +46,30 @@ class Form extends Component {
     } else if(this.refs.year.value === '') {
       alert('Year is Required');
     } else {
-      this.setState({newChart: {
-        month: this.refs.month.value,
-        day: this.refs.day.value,
-        year: this.refs.year.value
-      }}, function() {
-        console.log(this.state);
-        // this.props.addPlanets(this.state.newChart)
-      });
+      let monthVal = this.refs.month.value;
+      monthVal = new Date(Date.parse(monthVal + " 1, 2012")).getMonth()+1;
+      let dateFull = this.refs.year.value +"-"+ monthVal + "-" + this.refs.day.value;
+      let url = "http://www.astro-phys.com/api/de406/states?date=" + dateFull + "&bodies=mercury, venus"
+      $.ajax({
+        url: url,
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+          this.setState({planets: data}, function() {
+            console.log(this.state);
+          })
+        }.bind(this), 
+        error: function(xhr, status, err) {
+          console.log(err);
+        }
+      })
+      // getPlanets(dateFull);
+      // this.setState({newChart: {
+      //   dateFull: dateFull
+      // }}, function() {
+      //   console.log(this.state);
+      //   // this.props.addPlanets(this.state.newChart)
+      // });
     }
     e.preventDefault();
   }

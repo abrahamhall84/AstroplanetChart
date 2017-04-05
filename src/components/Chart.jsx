@@ -62,7 +62,22 @@ class Chart extends Component {
         <div id="Pluto-Orbit">
           <div id="Pluto"></div>
         </div>
-        <div id="Zodiac"></div>
+        <div id="Zodiac">
+          <div id="Constellations">
+            <div className="Aries"></div>
+            <div className="Taurus"></div>
+            <div className="Gemini"></div>
+            <div className="Cancer"></div>
+            <div className="Leo"></div>
+            <div className="Virgo"></div>
+            <div className="Libra"></div>
+            <div className="Scorpio"></div>
+            <div className="Sagittarius"></div>
+            <div className="Capricorn"></div>
+            <div className="Aquarius"></div>
+            <div className="Pisces"></div>
+          </div>
+        </div>
       </div>
     );
   }

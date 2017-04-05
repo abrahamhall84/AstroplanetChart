@@ -13,23 +13,6 @@ class App extends Component {
       planets: []
     }
   }
-  //https://api.nasa.gov/planetary/apod?api_key=
-  getPlanets() {
-    let API_Key = '6MUDWc4dNMDS8kukwgQLrduYTX40UHWYqYVAFZNM';
-    $.ajax({
-      url: "https://api.nasa.gov/planetary/apod?api_key=" + API_Key,
-      dataType: 'json',
-      cache: false,
-      success: function(data) {
-        this.setState({planets: data}, function() {
-          console.log(this.state);
-        })
-      }.bind(this), 
-      error: function(xhr, status, err) {
-        console.log(err);
-      }
-    })
-  }
   componentDidMount() {
     this.getPlanets();
   }
